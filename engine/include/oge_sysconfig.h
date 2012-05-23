@@ -1,5 +1,5 @@
-#ifndef __ctc_sysconfig_h__
-#define __ctc_sysconfig_h__
+#ifndef __oge_sysconfig_h__
+#define __oge_sysconfig_h__
 
 #include <string>
 

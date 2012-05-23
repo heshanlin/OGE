@@ -1,5 +1,5 @@
-#ifndef __ctc_util_h__
-#define __ctc_util_h__
+#ifndef __oge_util_h__
+#define __oge_util_h__
 
 #include <map>
 #include <string>

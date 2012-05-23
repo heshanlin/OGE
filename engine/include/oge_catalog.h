@@ -1,5 +1,5 @@
-#ifndef __ctc_catalog_h__
-#define __ctc_catalog_h__
+#ifndef __oge_catalog_h__
+#define __oge_catalog_h__
 
 #include <map>
 #include <string>

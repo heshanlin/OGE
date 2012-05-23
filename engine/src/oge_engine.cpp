@@ -1,7 +1,7 @@
-#include "ctc_engine.h"
-#include "ctc_plugin.h"
-#include "ctc_workflow.h"
-#include "ctc_logger.h"
+#include "oge_engine.h"
+#include "oge_plugin.h"
+#include "oge_workflow.h"
+#include "oge_logger.h"
 #include <stdlib.h>
 #include <iostream>
 #include <fstream>

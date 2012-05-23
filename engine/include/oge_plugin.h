@@ -1,10 +1,10 @@
-#ifndef __ctc_plugin_h__
-#define __ctc_plugin_h__
+#ifndef __oge_plugin_h__
+#define __oge_plugin_h__
 
 #include <string>
 #include <map>
 #include <vector>
-#include <ctc_util.h>
+#include <oge_util.h>
 
 class Plugin
 {

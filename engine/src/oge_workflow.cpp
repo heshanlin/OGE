@@ -3,10 +3,10 @@
 #include <sstream>
 #include "rapidxml/rapidxml.hpp"
 #include "rapidxml/rapidxml_print.hpp"
-#include "ctc_workflow.h"
-#include "ctc_util.h"
-#include "ctc_sysconfig.h"
-#include "ctc_logger.h"
+#include "oge_workflow.h"
+#include "oge_util.h"
+#include "oge_sysconfig.h"
+#include "oge_logger.h"
 #include <cstring>
 #include <string>
 

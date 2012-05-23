@@ -1,11 +1,11 @@
-#ifndef __ctc_engine_h__
-#define __ctc_engine_h__
+#ifndef __oge_engine_h__
+#define __oge_engine_h__
 
 #include <string>
 #include <map>
-#include "ctc_workflow.h"
-#include "ctc_catalog.h"
-#include "ctc_sysconfig.h"
+#include "oge_workflow.h"
+#include "oge_catalog.h"
+#include "oge_sysconfig.h"
 
 class Engine
 {

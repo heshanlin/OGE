@@ -1,11 +1,11 @@
-#ifndef __ctc_workflow_h__
-#define __ctc_workflow_h__
+#ifndef __oge_workflow_h__
+#define __oge_workflow_h__
 
 #include <string>
 #include <vector>
 #include <list>
 #include <map>
-#include <ctc_util.h>
+#include <oge_util.h>
 
 struct WorkflowStep {
     int type;

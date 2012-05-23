@@ -1,5 +1,5 @@
-#ifndef __ctc_logger_h__
-#define __ctc_logger_h__
+#ifndef __oge_logger_h__
+#define __oge_logger_h__
 
 #include <string>
 #include <fstream>

@@ -1,4 +1,4 @@
-#include "ctc_sysconfig.h"
+#include "oge_sysconfig.h"
 #include <fstream>
 #include <algorithm>
 #include <iostream>

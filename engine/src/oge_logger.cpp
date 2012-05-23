@@ -1,4 +1,4 @@
-#include "ctc_logger.h"
+#include "oge_logger.h"
 #include <iostream>
 using namespace std;
 

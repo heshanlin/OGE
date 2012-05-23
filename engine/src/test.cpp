@@ -1,9 +1,9 @@
 #include <iostream>
 #include <fstream>
-#include "ctc_workflow.h"
-#include "ctc_plugin.h"
-#include "ctc_catalog.h"
-#include "ctc_engine.h"
+#include "oge_workflow.h"
+#include "oge_plugin.h"
+#include "oge_catalog.h"
+#include "oge_engine.h"
 #include <stdlib.h>
 #include <string>
 #include <cstring>
