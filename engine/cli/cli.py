@@ -143,7 +143,7 @@ print ("Enter \"exit\" to quit")
 
 while True:
     try:
-        line = raw_input('\nctc > ')
+        line = raw_input('\noge > ')
     except KeyboardInterrupt:
         continue
 
