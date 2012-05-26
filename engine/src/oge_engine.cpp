@@ -22,8 +22,8 @@ Engine::Engine(const string &path, SysConfig *sys_conf)
     }
 
     if(sys_conf == NULL) {
-        // Init from ctc.ini
-        string conf_file = _root_dir + "ctc.ini";
+        // Init from oge.ini
+        string conf_file = _root_dir + "oge.ini";
         sys_conf = SysConfig::instance();
         sys_conf->openConfigFile(conf_file);
     }

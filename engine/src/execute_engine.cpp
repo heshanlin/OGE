@@ -28,7 +28,7 @@ int main(int argc, char **argv)
     try {
         string engine_dir = argv[++arg_idx];
         SysConfig *sys_conf = SysConfig::instance();
-        sys_conf->openConfigFile(engine_dir + "/" + "ctc.ini");
+        sys_conf->openConfigFile(engine_dir + "/" + "oge.ini");
 
         bool dry_run = false;
         int ac = 0;

@@ -1,46 +1,49 @@
 Installation
 ------------
 
-1) ./configure --prefix=/path/to/install-dir
-2) make
-3) make install
-4) Add executable path to your $PATH environment variable.
-export PATH=$PATH:/path/to/install-dir/bin
+1) Configure package
+$ ./configure --prefix=/path/to/install-dir
+
+2) Make the package
+$ make
+$ make install
+
+3) Add executable path to your $PATH environment variable.
+$ export PATH=$PATH:/path/to/install-dir/bin
 
 Data Management
 ---------------
 
-Users need to choose a root directory for OGE. An OGE application will initialize the root directory at the first run. There are two important configuration files in the OGE root. 
+Users need to choose a root directory for an OGE data repository. An OGE application will initialize the root directory at the first run. A pre-configured OGE data repository is distributed under the ogeroot/ directory in the package. There are two important configuration files in a OGE data repository.
 
-1) ctc.ini
+1) oge.ini
 This file stores important system parameters, such as debugging configuration and the temporary execution directory.
 
 2) catalog.xml
-This file stores meta information of all plugins and workflows in the repository.
+This file stores meta information of all plug-ins and workflows in the repository.
 
-By defaults, plugin definitations are stored under plugins/ and workflow definiations are stored under workflows/.
-
-A pre-configured OGE root is stored in test/ with several widely used plugins and workflows defined.
+By defaults, plug-in definitations are stored under plugins/ and workflow definiations are stored under workflows/. Note that the actual applications are not included in the package. Users need to download these applications from their original websites. 
 
 Getting Started
 ---------------
 
 OGE can be accessed through three approaches.
 
-1) Command Line Interface
+1) Command Line Interface (CLI)
 
-There is a cli.py located in the cli/ dir. To use it:
+There is a cli.py located in the cli/ dir. To launch it:
 
-python cli/cli.py <oge_root>
+python cli/cli.py ogeroot/
 
-Once the cli is stared, type help to see all the supported commands. It provides a menu-driven tool to help user create the workflow.
+Once the CLI is stared, type help to see all the supported commands. It provides a menu-driven tool to help user create workflows.
 
-2) Programmable interface
+2) Programmable Interface
 
 An example of how to use programmable interface to access OGE is given in examples/c++/align_workflow.cpp.
 
-3) BPipe-like script parsing. 
+3) Annoated Script Interface
 
-OGE provides a tool called import_script to import BPipe-like annotated scripts. This tool will parse the input script and automatically generate plugins and workflows. An example of the annotated script is given in examples/annotated_scripts/script_example. To import from a script:
+OGE provides a tool called import_script to import BPipe-like annotated scripts. This tool will parse the input script and automatically generate plug-ins and workflows. An example of the annotated script is given in examples/annotated_scripts/script_example. To import from a script:
 
 import_script <oge_root> <script>
+
