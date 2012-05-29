@@ -1,5 +1,5 @@
 <plugin id="gatk_realign" name="Realign reads with GATK" version="1.6">
-    <description>Realign reads around indel</description>
+    <description>Realign reads around indels</description>
     <commands>
         <command>
             java -Xmx1g -jar /ctc-shared/software/gatk-1.6/GenomeAnalysisTK.jar -T IndelRealigner -I $input_bam -R $ref_genome [$indels != ""? --known $indels] -model $model -targetIntervals $input_interval -o $output_bam

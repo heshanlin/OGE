@@ -29,6 +29,8 @@ public:
     int executeWorkflow(Workflow &workflow, std::map < std::string, std::string >& paras, bool dry_run = false);
     bool findPlugin(const std::string &id);
 
+    std::string getRootDir();
+
 protected:
     Catalog *_catalog;
     std::string _root_dir;

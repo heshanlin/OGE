@@ -65,8 +65,8 @@ int main(int argc, char **argv)
 
         // Configure incoming parameters
         map <string, string> paras;
-        paras["in_read1"] = "/path/to/in1.fast1";
-        paras["in_read2"] = "/path/to/in1.fast2";
+        paras["in_read1"] = "/path/to/in1.fq1";
+        paras["in_read2"] = "/path/to/in1.fq2";
         paras["in_genome"] = "/path/to/genome.fasta";
         paras["output"] = "/path/to/results.bam";
 

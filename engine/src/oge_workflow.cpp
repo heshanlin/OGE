@@ -56,7 +56,7 @@ Workflow::Workflow(const string &conf_file)
         string type = attr->value();
         if(type == string("file")) {
             p.para_type = DATA_FILE;
-        } else if(type == string("boolen")) {
+        } else if(type == string("boolean")) {
             p.para_type = BOOL;
         } else if(type == string("float")) {
             p.para_type = FLOAT;
@@ -226,9 +226,9 @@ Workflow::buildXml(const string &conf_file)
             ccc->append_attribute(doc.allocate_attribute("name",
                                   (*itt).first.
                                   c_str()));
-            ccc->
-            append_attribute(doc.allocate_attribute
-                             ("value", (*itt).second.c_str()));
+            // ccc->
+            // append_attribute(doc.allocate_attribute
+            //                 ("value", (*itt).second.c_str()));
             output->append_node(ccc);
         }
         cc->append_node(output);

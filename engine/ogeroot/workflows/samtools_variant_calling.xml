@@ -1,4 +1,4 @@
-<workflow id="samtools_variant_calling" name="SAMTOOLS Variant Calling" version="1.0.1">
+<workflow id="samtools_variant_calling" name="SAMTOOLS Variant Calling" version="1.0">
     <description></description>
     <inputs>
         <param name="input-read1" type="file" format="fastq" />

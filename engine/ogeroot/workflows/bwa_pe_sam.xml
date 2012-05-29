@@ -1,8 +1,8 @@
-<workflow id="bwa_pe_sam" name="BWA Align with SAM Output" version="1.0.1">
+<workflow id="bwa_pe_sam" name="BWA Align with SAM Output" version="1.0">
     <description> Align reads with BWA and convert them to SAM format </description>
     <inputs>
-        <param name="input-read1" type="file" format="fastq" />
-        <param name="input-read2" type="file" format="fastq" />
+        <param name="input_read1" type="file" format="fastq" />
+        <param name="input_read2" type="file" format="fastq" />
         <param name="ref_genome" type="file" format="bwtindex" />
     </inputs>
     <steps>

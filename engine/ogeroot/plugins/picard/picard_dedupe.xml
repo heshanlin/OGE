@@ -1,4 +1,4 @@
-<plugin id="picard_dedupe" name="Deduplication with Picard" version="0.1.18">
+<plugin id="picard_dedupe" name="Deduplication with Picard" version="1.65">
     <description></description>
     <commands>
         <command>

@@ -142,8 +142,8 @@ int Engine::executePlugin(const string &id, map < string, string >& paras, bool 
     Plugin plugin(_catalog->getPluginFile(id));
     vector <string> commands;
 
-    string workdir = getTmpDir(SysConfig::instance()->getWorkDir());
     string org_dir = getCurrentDir();
+    string workdir = getTmpDir(SysConfig::instance()->getWorkDir());
     // Change current working directory
     DBG_LOG << "Changing working directory to " << workdir << endl;
     if(changeCurrentDir(workdir)) {
@@ -164,7 +164,7 @@ int Engine::executePlugin(const string &id, map < string, string >& paras, bool 
         cerr << "Error executing plugin " << id << " " << err << endl;
     }
     // Recover current dir
-    DBG_LOG << "Changing working directory to " << workdir << endl;
+    DBG_LOG << "Changing working directory to " << org_dir << endl;
     if(changeCurrentDir(org_dir)) {
         throw __FILE__ " Error changing directory";
     }
@@ -339,3 +339,6 @@ bool Engine::findPlugin(const std::string &id)
     return false;
 }
 
+string Engine::getRootDir() {
+    return _root_dir;
+}

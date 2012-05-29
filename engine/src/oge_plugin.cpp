@@ -49,7 +49,7 @@ Plugin::Plugin(const string &conf_file)
         string type = attr->value();
         if(type == string("file")) {
             p.para_type = DATA_FILE;
-        } else if(type == string("bool")) {
+        } else if(type == string("boolean")) {
             p.para_type = BOOL;
         } else if(type == string("float")) {
             p.para_type = FLOAT;
@@ -138,6 +138,7 @@ void Plugin::buildXml(const string &conf_file)
         if((*it).second.para_type == DATA_FILE) {
             cc->append_attribute(doc.allocate_attribute("format", (*it).second.format.c_str()));
         }
+        cc->append_attribute(doc.allocate_attribute("value", (*it).second.val.c_str()));
         cc->append_attribute(doc.allocate_attribute("label", (*it).second.label.c_str()));
         child->append_node(cc);
     }
@@ -150,6 +151,7 @@ void Plugin::buildXml(const string &conf_file)
         if((*it).second.para_type == DATA_FILE) {
             cc->append_attribute(doc.allocate_attribute("format", (*it).second.format.c_str()));
         }
+        // cc->append_attribute(doc.allocate_attribute("value", (*it).second.val.c_str()));
         cc->append_attribute(doc.allocate_attribute("label", (*it).second.label.c_str()));
         child->append_node(cc);
     }
@@ -244,7 +246,7 @@ void Plugin::printInputs()
     oss << "Inputs:" << endl;
     for(map < string, Parameter >::const_iterator it = _inputs.begin(); it != _inputs.end(); it++)
         oss << "\tname=\"" << (*it).first << "\" type=\"" << para_types[(*it).second.para_type] << "\""
-            << " format=\"" << (*it).second.format  << "\" label=\"" << (*it).second.label << "\"" << endl;
+            << " format=\"" << (*it).second.format  << " value=\"" << (*it).second.val << "\" label=\"" << (*it).second.label << "\"" << endl;
     cout << oss.str();
 }
 

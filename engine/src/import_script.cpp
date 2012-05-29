@@ -33,7 +33,7 @@ int main(int argc, char **argv)
             throw __FILE__ " Error opening the script";
         }
 
-        Engine p(engine_root);
+        Engine engine(engine_root);
 
         Parameter p1(DATA_FILE, "", "", "");
         wp->addInput("input", p1);
@@ -120,21 +120,29 @@ int main(int argc, char **argv)
         }
         ifs.close();
 
+        if(wp->getID().empty()) 
+            throw __FILE__ " WORKFLOW_ID cannot be empty";
+        if(suite.empty()) 
+            throw __FILE__ " SUITE_ID cannot be empty";
+
         Parameter p4(DATA_FILE, last_output, "", "");
         wp->addOutput("output", p4);
 
         // Save plugins and workflow
         Catalog *cp = Catalog::instance();
 
+        string import_dir = engine.getRootDir() + suite;
+        createDir(import_dir);
+
         vector <string> plugin_files;
         for(int i = 0; i < plugins.size(); i++) {
-            string p_conf = SysConfig::instance()->getPluginDir() + "/" + plugins[i]->getID() + ".xml";
+            string p_conf = import_dir + "/" + plugins[i]->getID() + ".xml";
             if(cp->addPlugin(suite, plugins[i]->getID(), p_conf)) {
                 throw __FILE__ " Error adding plugin to the catalog";
             }
             plugin_files.push_back(p_conf);
         }
-        string w_conf = SysConfig::instance()->getWorkflowDir() + "/" + wp->getID() + ".xml";
+        string w_conf = import_dir + "/" + wp->getID() + ".xml";
         if(cp->addWorkflow(suite, wp->getID(), w_conf)) {
             throw __FILE__ " Error adding workflow to the catalog";
         }

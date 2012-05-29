@@ -1,4 +1,4 @@
-<workflow id="gatk_variant_calling" name="GATK Variant Calling" version="1.0.1">
+<workflow id="gatk_variant_calling" name="GATK Variant Calling" version="1.0">
     <description>Call variants from reads with DIndel</description>
     <inputs>
         <param name="input-read1" type="file" format="fastq" />

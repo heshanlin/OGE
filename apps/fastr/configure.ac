@@ -16,10 +16,10 @@ AC_PROG_CC
             ])
 
 # Check nvcc version, should be 4.0
-        AS_IF([nvcc --version | grep -q "release 4.0"],
-            [],
-            [AC_MSG_WARN([NVCC compiler version is NOT 3.0!])
-            ])
+#        AS_IF([nvcc --version | grep -q "release 4.0"],
+#            [],
+#            [AC_MSG_WARN([NVCC compiler version is NOT 3.0!])
+#            ])
 
 CUDA_ARCH=" -arch=sm_20"
 
@@ -66,10 +66,10 @@ AC_SUBST(NVCC)
 AC_SUBST(NVCCFLAGS)
 
 # Checks for libraries.
-AC_CHECK_LIB(bamtools, main, LIBS+=" -lbamtools",
-	AC_MSG_ERROR([bamtools library not found]))
+AC_CHECK_LIB(bamtools, main, LIBS+=" ${BAMTOOLS_PREFIX}/lib/libbamtools.a",
+    AC_MSG_ERROR([bamtools library not found]))
 
-AC_CHECK_LIB(z, inflate, LIBS+=" -lz",
+AC_CHECK_LIB(z, inflate, ,
 	AC_MSG_ERROR([zlib library not found]))
 
 LIBS+=" -lcudart"
