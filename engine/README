@@ -52,3 +52,4 @@ OGE provides a tool called import_script to import BPipe-like annotated scripts.
 
 import_script <oge_root> <script>
 
+Please refer to the user manual (manual/OGEUserManual.pdf) for more information.
