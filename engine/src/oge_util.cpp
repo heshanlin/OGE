@@ -231,7 +231,7 @@ string resolveConditional(string str, map <string, string>& exec_conf, map<strin
     pos1 = value.find(":");
     if(pos1 != string::npos) {
         if(eval) {
-            return resolveStream(value.substr(0, pos1 - 1), exec_conf, sys_conf);
+            return resolveStream(value.substr(0, pos1), exec_conf, sys_conf);
         } else {
             return resolveWord(value.substr(pos1 + 1), exec_conf, sys_conf);
         }
