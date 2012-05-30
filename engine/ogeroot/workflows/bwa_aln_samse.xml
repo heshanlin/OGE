@@ -1,0 +1,31 @@
+<workflow id="bwa_aln_samse" name="BWA Align with SAM Output" version="0.5.9">
+    <description> Align single-end reads with BWA and convert them to SAM format </description>
+    <inputs>
+        <param name="input_read" type="file" format="fastq" />
+        <param name="ref_genome" type="file" format="bwtindex" label="BWA-formatted reference genome"/>
+    </inputs>
+    <steps>
+        <step id="aln" type="plugin" plugin_id="bwa_aln" >
+            <inputs>
+                <param name="input_read" value="$input_read" />
+                <param name="ref_genome" value="$ref_genome" />
+            </inputs>
+            <outputs>
+                <param name="output_sai" />
+            </outputs>
+        </step>
+        <step id="tosam" type="plugin" plugin_id="bwa_samse" >
+            <inputs>
+                <param name="input_read" value="$input_read" />
+                <param name="input_sai" value="$aln.output_sai" />
+                <param name="ref_genome" value="$ref_genome" />
+            </inputs>
+            <outputs>
+                <param name="output_sam" />
+            </outputs>
+        </step>
+    </steps>
+    <outputs>
+        <param name="output_sam" type="file" format="sam" value="$tosam.output_sam" />
+    </outputs>
+</workflow>

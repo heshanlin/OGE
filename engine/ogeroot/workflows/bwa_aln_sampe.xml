@@ -1,14 +1,14 @@
-<workflow id="bwa_pe_sam" name="BWA Align with SAM Output" version="1.0">
+<workflow id="bwa_pe_sam" name="BWA Align with SAM Output" version="0.5.9">
     <description> Align reads with BWA and convert them to SAM format </description>
     <inputs>
         <param name="input_read1" type="file" format="fastq" />
         <param name="input_read2" type="file" format="fastq" />
-        <param name="ref_genome" type="file" format="bwtindex" />
+        <param name="ref_genome" type="file" format="bwtindex" label="BWA-formatted reference genome" />
     </inputs>
     <steps>
         <step id="aln1" type="plugin" plugin_id="bwa_aln" >
             <inputs>
-                <param name="input_read" value="$input-read1" />
+                <param name="input_read" value="$input_read1" />
                 <param name="ref_genome" value="$ref_genome" />
             </inputs>
             <outputs>
@@ -17,7 +17,7 @@
         </step>
         <step id="aln2" type="plugin" plugin_id="bwa_aln" >
             <inputs>
-                <param name="input_read" value="$input-read2" />
+                <param name="input_read" value="$input_read2" />
                 <param name="ref_genome" value="$ref_genome" />
             </inputs>
             <outputs>
@@ -26,8 +26,8 @@
         </step>
         <step id="tosam" type="plugin" plugin_id="bwa_sampe" >
             <inputs>
-                <param name="input_read1" value="$input-read1" />
-                <param name="input_read2" value="$input-read2" />
+                <param name="input_read1" value="$input_read1" />
+                <param name="input_read2" value="$input_read2" />
                 <param name="ref_genome" value="$ref_genome" />
                 <param name="input_sai1" value="$aln1.output_sai" />
                 <param name="input_sai2" value="$aln2.output_sai" />

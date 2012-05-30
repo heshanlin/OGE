@@ -42,7 +42,7 @@ void add_input(Workflow &w)
                     break;
                 }
 
-                cout << "  type(file, bool, float, int, text): ";
+                cout << "  type(file, bool, float, int, string): ";
                 getline(cin, type);
                 if(type == "file") {
                     p.para_type = DATA_FILE;
@@ -52,8 +52,8 @@ void add_input(Workflow &w)
                     p.para_type = FLOAT;
                 } else if(type == "int") {
                     p.para_type = INT;
-                } else if(type == "text") {
-                    p.para_type = TEXT;
+                } else if(type == "string") {
+                    p.para_type = STRING;
                 } else {
                     p.para_type = UNKNOWN;
                     cout << "  Warning: Unkown type" << endl;
@@ -122,7 +122,7 @@ void add_output(Workflow &w)
                 if(name == "") {
                     break;
                 }
-                cout << "  type(file, bool, float, int, text): ";
+                cout << "  type(file, bool, float, int, string): ";
                 getline(cin, type);
                 if(type == "file") {
                     p.para_type = DATA_FILE;
@@ -132,8 +132,8 @@ void add_output(Workflow &w)
                     p.para_type = FLOAT;
                 } else if(type == "int") {
                     p.para_type = INT;
-                } else if(type == "text") {
-                    p.para_type = TEXT;
+                } else if(type == "string") {
+                    p.para_type = STRING;
                 } else {
                     p.para_type = UNKNOWN;
                     cout << "  Warning: Unkown type" << endl;

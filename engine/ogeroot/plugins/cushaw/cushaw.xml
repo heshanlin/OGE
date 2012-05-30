@@ -1,0 +1,39 @@
+<plugin id="cushaw" name="CUSHAW Align" version="1.0">
+    <description>CUSHAW: CUDA-based algorithm for short read alignment using Burrows-Wheeler transform</description>
+    <commands>
+        <command>
+            cushaw output/ $ref_genome -$align_type $input_read1 [$input_read2 != ""? $input_read2] [$num_trim3 != ""? -trim3 $num_trim3] [$num_trim5 != ""? -trim5 $num_trim5] -s $seed_size -i $insert_size -mms $seed_mismatch -mmr $read_mismatch -qss $qual_seed_mismatch -qsr $qual_read_mismatch -e $error_rate -b $num_top [$no_forward? -nofw] [$no_reverse? -norc] -g $num_gpus -gi $gpu_index -t $num_threads
+        </command>
+        <command>
+            mv output/Aligns.sam $output_sam
+        </command>
+    </commands>
+
+    <inputs>
+        <param name="ref_genome" type="file" format="bwt_index" label="Index of reference genome"/>
+        <param name="align_type" type="string" label="Alignment type: fasta|fastaPaired|fastq|fastqPaired"/>
+        <param name="input_read1" type="file" format="fastq" label="Input read file1"/>
+        <param name="input_read2" type="file" format="fastq" label="Input read file2"/>
+        <param name="num_trim3" type="int" label="the number of trimmed bases from the 3' end"/>
+        <param name="num_trim5" type="int" label="the number of trimmed bases from the 5' end"/>
+        <param name="seed_size" type="int" value="32" label="seed size, 0 disabling seeding"/>
+        <param name="insert_size" type="int" value="300" label="maximum insert size for paired-end mapping"/>
+        <param name="seed_mismatch" type="int" value="2" label="maximal number of mismatches in the seed"/>
+        <param name="read_mismatch" type="int" value="7" label="maximal number of mismatches in the full length"/>
+        <param name="qual_seed_mismatch" type="int" value="70" label="quality score sum limit at mismatched positions in the seed"/>
+        <param name="qual_read_mismatch" type="int" value="210" label="quality score sum limit at mismatched positions in the full length"/>
+        <param name="error_rate" type="float" value="0.04" label="uniform base error rate"/>
+        <param name="num_top" type="int" value="1" label="give the top number of alignments"/>
+        <param name="no_forward" type="boolean" label="do not align forward strand"/>
+        <param name="no_reverse" type="boolean" label="do not align reverse strand"/>
+        <param name="num_gpus" type="int" value="1" label="the number of GPUs used"/>
+        <param name="gpu_index" type="int" value="0" label="the index of the selected single GPU"/>
+        <param name="num_threads" type="int" value="4" label="number of threads for post-alignment process"/>
+        <param name="aln_output" type="file" format="sam" label="output file for aligned reads" />
+        <param name="unaln_output" type="file" format="sam" label="output file for unaligned reads" />
+    </inputs>
+
+    <outputs>
+        <param name="output_sam" type="file" format="sam" label="output file" />
+    </outputs>
+</plugin>

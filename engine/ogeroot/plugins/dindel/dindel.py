@@ -75,7 +75,7 @@ def main():
         cmd_s4 = "python " + INSTALL_PATH + opt4 + " --inputFiles tmp/stage2_outputfiles.txt --outputFile " + options.output + " --ref " + options.reffile + opt3
         print (cmd_s4)
         os.system(cmd_s4);	
-        os.system("rm tmp -rf");
+        # os.system("rm tmp -rf");
 
         if options.bamindex <> None:
             os.system("mv " + options.bamfile + ".bai " +  options.bamindex)

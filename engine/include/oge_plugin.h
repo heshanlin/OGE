@@ -54,6 +54,8 @@ public:
     void addOutput(const std::string &name, Parameter &p);
     void addCommand(const std::string &cmd);
 
+    friend class Engine;
+
 protected:
     std::string _conf_dir;
     std::string _name;

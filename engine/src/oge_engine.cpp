@@ -163,13 +163,14 @@ int Engine::executePlugin(const string &id, map < string, string >& paras, bool 
     } catch(const char *err) {
         cerr << "Error executing plugin " << id << " " << err << endl;
     }
+
     // Recover current dir
     DBG_LOG << "Changing working directory to " << org_dir << endl;
     if(changeCurrentDir(org_dir)) {
         throw __FILE__ " Error changing directory";
     }
     // Cleanup temporary directory
-    removeDir(workdir);
+    // removeDir(workdir);
 
     return 0;
 }

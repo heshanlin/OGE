@@ -10,7 +10,7 @@ enum PARATYPE {
     INT,
     FLOAT,
     BOOL,
-    TEXT,
+    STRING,
     DATA_FILE,
     UNKNOWN
 };
@@ -19,7 +19,7 @@ const std::string para_types [] = {
     "int",
     "float",
     "boolean",
-    "text",
+    "string",
     "file",
     "unknown"
 };

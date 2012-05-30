@@ -15,6 +15,9 @@ Under the fast root.
 
 Return to the vt_lr root.
 
+If configure does not exist, generate it with autoreconf.
+$ autoreconf -i
+
 % ./configure --with-bamtools=./bamtools
 % make
 

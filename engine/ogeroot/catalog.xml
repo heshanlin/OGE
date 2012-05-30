@@ -2,7 +2,10 @@
 	<suite label="NGS Mapping Tools" id="mappers">
 		<plugin id="bwa_aln" file="plugins/bwa/bwa_aln.xml"/>
 		<plugin id="bwa_sampe" file="plugins/bwa/bwa_sampe.xml"/>
-		<workflow id="bwa_pe_sam" file="workflows/bwa_pe_sam.xml"/>
+		<plugin id="bwa_samse" file="plugins/bwa/bwa_samse.xml"/>
+		<plugin id="cushaw" file="plugins/cushaw/cushaw.xml"/>
+		<workflow id="bwa_aln_sampe" file="workflows/bwa_aln_sampe.xml"/>
+		<workflow id="bwa_aln_samse" file="workflows/bwa_aln_samse.xml"/>
 	</suite>
 	<suite label="Realignment Tools" id="realigner">
 		<plugin id="realigner_target_creator" file="plugins/gatk/realigner_target_creator.xml"/>
@@ -25,6 +28,7 @@
 		<plugin id="sam_sorted_bam" file="plugins/samtools/sam_sorted_bam.xml"/>
 		<plugin id="mpileup" file="plugins/samtools/mpileup.xml"/>
 		<plugin id="picard_dedupe" file="plugins/picard/picard_dedupe.xml"/>
+		<plugin id="picard_sortsam" file="plugins/picard/picard_sortsam.xml"/>
 	</suite>
 </suites>
 

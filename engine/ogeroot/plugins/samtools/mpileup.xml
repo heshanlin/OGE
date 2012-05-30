@@ -2,13 +2,40 @@
     <description></description>
     <commands>
         <command>
-            samtools mpileup -uf $ref_genome $input_bam | bcftools view -bvcg - > $output_vcf
+            samtools mpileup [$illumina13? -6] [$anomalous? -A] [$disable_baq? -B] [$bam_list? -b $bam_list] -C $adjust_maq -d $max_depth [$extended_baq? -E] [$exclude_rg != ""? -G $exclude_rg] [$region_list != ""? -l $region_list] -M $qual_cap [$region != ""? -r $region] [$ignore_rgtags? -R] -q $min_maq -Q $min_baseq [$output_dp? -D] [$bcf_out? -g] [$output_bpos? -O] [$output_qual? -s] -u -e $gap_error -F $min_frac -h $h_coeff -L $indel_depth -m $min_gap -o $go_error [$platforms != ""? -P $platforms] -f $ref_genome $input_bam | bcftools view -vcg - > $output_vcf
         </command>
     </commands>
 
     <inputs>
         <param name="input_bam" type="file" format="bam" label="BAM file"/>
         <param name="ref_genome" type="file" format="fai" label="Input genome"/>
+        <param name="illumina13" type="boolean" value="false" label="assume the quality is in the Illumina-1.3+ encoding"/>
+        <param name="anomalous" type="boolean" value="false" label="count anomalous read pairs"/>
+        <param name="disable_baq" type="boolean" value="false" label="disable BAQ computation"/>
+        <param name="bam_list" type="file" format="txt" label="list of input BAM files"/>
+        <param name="adjust_maq" type="int" value="0" label="parameter for adjusting mapQ; 0 to disable"/>
+        <param name="max_depth" type="int" value="250" label="max per-BAM depth to avoid excessive memory usage"/>
+        <param name="extended_baq" type="boolean" value="false" label="extended BAQ for higher sensitivity but lower specificity"/>
+        <param name="exclude_rg" type="file" format="txt" label="exclude read groups listed in the give file"/>
+        <param name="region_list" type="file" format="txt" label="list of positions (chr pos) or regions (BED)"/>
+        <param name="qual_cap" type="int" value="60" label="cap mapping quality at INT"/>
+        <param name="region" type="string" label="region in which pileup is generated"/>
+        <param name="ignore_rgtags" type="boolean" value="false" label="ignore RG tags"/>
+        <param name="min_maq" type="int" value="0" label="skip alignments with mapQ smaller than INT"/>
+        <param name="min_baseq" type="int" value="13" label="skip bases with baseQ/BAQ smaller than INT"/>
+        <param name="output_dp" type="boolean" value="false" label="output per-sample DP in BCF (require -g/-u)"/>
+        <param name="bcf_out" type="boolean" value="false" label="generate BCF output (genotype likelihoods)"/>
+        <param name="output_bpos" type="boolean" value="false" label="output base positions on reads (disabled by -g/-u)"/>
+        <param name="output_qual" type="boolean" value="false" label="output mapping quality (disabled by -g/-u)"/>
+        <param name="output_pval" type="boolean" value="false" label="output per-sample strand bias P-value in BCF (require -g/-u)"/>
+        <param name="gap_error" type="int" value="20" label="Phred-scaled gap extension seq error probability"/>
+        <param name="min_frac" type="float" value="0.002" label="minimum fraction of gapped reads for candidates"/>
+        <param name="h_coeff" type="int" value="100" label="coefficient for homopolymer errors"/>
+        <param name="no_indel" type="boolean" value="false" label="do not perform indel calling"/>
+        <param name="indel_depth" type="int" value="250" label="max per-sample depth for INDEL calling"/>
+        <param name="min_gap" type="int" value="1" label="minimum gapped reads for indel candidates"/>
+        <param name="go_error" type="int" value="40" label="Phred-scaled gap open sequencing error probability"/>
+        <param name="platforms" type="string" label="comma separated list of platforms for indels"/>
     </inputs>
 
     <outputs>

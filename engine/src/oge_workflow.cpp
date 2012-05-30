@@ -62,8 +62,8 @@ Workflow::Workflow(const string &conf_file)
             p.para_type = FLOAT;
         } else if(type == string("int")) {
             p.para_type = INT;
-        } else if(type == string("text")) {
-            p.para_type = TEXT;
+        } else if(type == string("string")) {
+            p.para_type = STRING;
         } else {
             p.para_type = UNKNOWN;
         }
@@ -125,8 +125,8 @@ Workflow::Workflow(const string &conf_file)
             p.para_type = FLOAT;
         } else if(type == string("bool")) {
             p.para_type = INT;
-        } else if(type == string("text")) {
-            p.para_type = TEXT;
+        } else if(type == string("string")) {
+            p.para_type = STRING;
         } else {
             p.para_type = UNKNOWN;
         }

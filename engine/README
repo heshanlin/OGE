@@ -2,6 +2,11 @@ Installation
 ------------
 
 1) Configure package
+
+If configure does not exist, first generate it with autoreconf.
+$ mkdir -f m4
+$ autoreconf -i
+
 $ ./configure --prefix=/path/to/install-dir
 
 2) Make the package
@@ -14,7 +19,7 @@ $ export PATH=$PATH:/path/to/install-dir/bin
 Data Management
 ---------------
 
-Users need to choose a root directory for an OGE data repository. An OGE application will initialize the root directory at the first run. A pre-configured OGE data repository is distributed under the ogeroot/ directory in the package. There are two important configuration files in a OGE data repository.
+Users need to choose a root directory for an OGE data repository. An OGE application will initialize the root directory if it has not been initialized. A pre-configured OGE repository is distributed under the ogeroot/ directory in the package. There are two important configuration files in a OGE repository.
 
 1) oge.ini
 This file stores important system parameters, such as debugging configuration and the temporary execution directory.

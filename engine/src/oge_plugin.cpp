@@ -55,8 +55,8 @@ Plugin::Plugin(const string &conf_file)
             p.para_type = FLOAT;
         } else if(type == string("int")) {
             p.para_type = INT;
-        } else if(type == string("text")) {
-            p.para_type = TEXT;
+        } else if(type == string("string")) {
+            p.para_type = STRING;
         } else {
             p.para_type = UNKNOWN;
         }
@@ -91,8 +91,8 @@ Plugin::Plugin(const string &conf_file)
                 p.para_type = FLOAT;
             } else if(type == string("int")) {
                 p.para_type = INT;
-            } else if(type == string("text")) {
-                p.para_type = TEXT;
+            } else if(type == string("string")) {
+                p.para_type = STRING;
             } else {
                 p.para_type = UNKNOWN;
             }
@@ -246,7 +246,7 @@ void Plugin::printInputs()
     oss << "Inputs:" << endl;
     for(map < string, Parameter >::const_iterator it = _inputs.begin(); it != _inputs.end(); it++)
         oss << "\tname=\"" << (*it).first << "\" type=\"" << para_types[(*it).second.para_type] << "\""
-            << " format=\"" << (*it).second.format  << " value=\"" << (*it).second.val << "\" label=\"" << (*it).second.label << "\"" << endl;
+            << " format=\"" << (*it).second.format  << "\" value=\"" << (*it).second.val << "\" label=\"" << (*it).second.label << "\"" << endl;
     cout << oss.str();
 }
 

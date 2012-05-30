@@ -1,0 +1,20 @@
+<plugin id="picard_sortsam" name="Sort SAM file with Picard" version="1.65">
+    <description></description>
+    <commands>
+        <command>
+           java -Xmx1g -jar /ctc-shared/engine-test/executable/picard-tools-1.66/SortSam.jar 
+                                INPUT=$input_sam
+                                OUTPUT=$output_sam
+                                SORT_ORDER=$sort_order
+        </command>
+    </commands>
+
+    <inputs>
+        <param name="input_bam" type="file" format="sam" label="Input SAM file"/>
+        <param name="sort_order" type="string" value="coordinate" format="" label=""/>
+    </inputs>
+
+    <outputs>
+        <param name="output_bam" type="file" format="sam" label="Output SAM file" />
+    </outputs>
+</plugin>
