@@ -5,11 +5,11 @@ Installation
 
 Under the fast root.
 
-% cd bamtools
-% mkdir build
-% cd build
-% cmake ..
-% make
+$ cd bamtools
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make
 
 2. Build fastr
 
@@ -18,11 +18,11 @@ Return to the vt_lr root.
 If configure does not exist, generate it with autoreconf.
 $ autoreconf -i
 
-% ./configure --with-bamtools=./bamtools
-% make
+$ ./configure --with-bamtools=./bamtools
+$ make
 
 3. Run the program with threading enabled
 
-% ./IndelRealigner --threads=4 <input.bam> <input.intervals> <ref_genome> <output.bam>
+$ ./IndelRealigner --threads=4 <input.bam> <input.intervals> <ref_genome> <output.bam>
 
 Note: In the intervals file, each line should start with a '>'. Otherwise, the code will enter a dead loop.

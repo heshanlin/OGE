@@ -4,7 +4,7 @@ Installation
 1) Configure package
 
 If configure does not exist, first generate it with autoreconf.
-$ mkdir -f m4
+$ mkdir m4
 $ autoreconf -i
 
 $ ./configure --prefix=/path/to/install-dir
