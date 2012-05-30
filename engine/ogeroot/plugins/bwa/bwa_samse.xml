@@ -2,7 +2,7 @@
     <description>Convert BWA alignments to SAM format</description>
     <commands>
         <command>
-            bwa samse -n $max_occ [$read_group != ""? -r $read_group] $ref_genome $input_sai $input_read -f $output_sam
+            bwa samse [$max_occ !=""? -n $max_occ] [$read_group != ""? -r $read_group] $ref_genome $input_sai $input_read -f $output_sam
         </command>
     </commands>
 
@@ -11,7 +11,7 @@
         <param name="input_read" type="file" format="fastq" label="Input read file" />
         <param name="input_sai" type="file" format="sai" label="Input BWA alignments" />
         <param name="read_group" type="string" label="Read group information" />
-        <param name="max_occ" type="int" value="3" label="Maximum number of alignments to output in the XA tag for reads paired properly"/>
+        <param name="max_occ" type="int" label="Maximum number of alignments to output in the XA tag for reads paired properly"/>
     </inputs>
 
     <outputs>
